@@ -80,6 +80,8 @@ def preprocess_dataset(dataset, model_checkpoint, column="text", max_length=512)
             stride=256,
             pad_token_id=tokenizer.pad_token_id
         ),
+        batch_size=1000,                 
+        remove_columns=dataset.column_names,
         batched=True
     )
     return dataset, tokenizer
